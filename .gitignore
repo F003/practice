@@ -1,1 +1,3 @@
-ANSI_C_examples/*
+ANSI_C_examples/
+*.out
+*.swp
