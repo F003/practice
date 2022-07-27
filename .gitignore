@@ -1,3 +1,5 @@
-*.out
+**/*.out
+**/**/*.out
 ANSI_C_examples
-*.swp
+**/*.swp
+**/**/*.swp
