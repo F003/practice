@@ -1,2 +1,3 @@
-ANSI_C_exercises/a.out
+*.out
 ANSI_C_examples
+*.swp

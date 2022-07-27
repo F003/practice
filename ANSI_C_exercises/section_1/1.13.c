@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define IN 1
 #define OUT 0
-#define MAX_LENGHT 27
+#define MAX_LENGHT 15
 /* I assumed that sigle word takes no more that 27 characters.
 That is the lenght of the longest word used in the work of Shakespeare:
 honorificabilitudinitatibus. */
