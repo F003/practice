@@ -1,5 +1,1 @@
-**/*.out
-**/**/*.out
-ANSI_C_examples
-**/*.swp
-**/**/*.swp
+/ANSI_C_example/
