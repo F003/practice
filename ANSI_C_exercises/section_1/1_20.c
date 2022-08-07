@@ -1,7 +1,7 @@
 // program should be called detab, but I've chosen to stay with consistent naming 
 #include <stdio.h>
 #define MAXLENGHT 1000000
-#define SPACES_IN_TAB 4
+#define SPACES_IN_TAB 8
 
 int main()
 {
