@@ -10,6 +10,7 @@ int main()
 	char line[MAXLENGHT];
 	while ((i = get_line(line, MAXLENGHT)) > 0)
 		printf("%s", line);
+	return 0;
 }	
 
 int get_line(char s[], int max)
