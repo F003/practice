@@ -49,8 +49,6 @@ int size(long min, unsigned long max)
 {
 	int i;
 	/* to make number of values storable in long they are devided by 4 before storing */
-	max = max/8;
-	min = min/8;
 	unsigned long nvalues_dev8 = max - min;
 	for (i = 0; power(2, i) <= nvalues_dev8; ++i)
 		;
