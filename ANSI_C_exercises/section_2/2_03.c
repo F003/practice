@@ -7,7 +7,6 @@
 int get_line(char line[], int maxlenght);
 void to_lower(char line[]);
 int htoi(char s[]);
-int str_len(char string[]);
 
 int main()
 {
@@ -39,23 +38,13 @@ void to_lower(char line[])
 			line[i] = line[i] + 'a' - 'A';
 	return;
 }
-int str_len(char str[])
-{
-	int i;
-	for (i = 0; str[i] != '\n' && str[i] != '\0'; ++i)
-		;
-	return i;
-}
-
 int htoi(char hex[])
 {
 	to_lower(hex);
 	int i;
 	int negative = 0; /* if == 1 value will be multiplied by -1 before returning */
 	unsigned int value = 0;
-	int multiplier = 1; /* power of 16 that the new digit will be multiplied */
-	const int len = str_len(hex);
-	for (i = len - 1; i >= 0; --i) {
+	for (i = 0; hex[i] != '\0' && hex[i] != '\n'; ++i) {
 		
 		// checks if hex is negative
 		if (i == 0 && hex[i] == '-') {
@@ -63,27 +52,25 @@ int htoi(char hex[])
 		}
 
 		// if prefix 0x/0X is added
-		else if ((i == 1 || i == 2) && hex[i-1] == '0' && hex[i] == 'x'){
-			--i;
+		else if ((i == 0 || i == 1) && hex[i] == '0' && hex[i+1] == 'x'){
+			++i;
 		}
 		// if digit is number used in dec
 		else if (hex[i] >= '0' && hex[i] <= '9') {
-			value = value + (hex[i] - '0') * multiplier;
+			value = value * HEX + hex[i] - '0';
 			if (value > INT_MAX) {
 				printf("Value too big or too small.\nERROR CODE: ");
 				return 0;
 			}
-			multiplier = multiplier * HEX;
 		}
 		
 		// if digit is coded as a letter
 		else if (hex[i] >= 'a' && hex[i] <= 'f') {
-			value = value + (hex[i] - 'a' + 10) * multiplier;
+			value = value * HEX + hex[i] - 'a' + 10;
 			if (value > INT_MAX) {
 				printf("Value too big or too small.\nERROR CODE: ");
 				return 1;
 			} 
-			multiplier = multiplier * HEX;
 		} 
 		
 		// if input is not a digit or prefix in hex
