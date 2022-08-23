@@ -32,13 +32,9 @@ void squeeze(char line[], char del[])
 	int i, j, k;
 
 	for (i = j = 0; line[i] != '\0'; ++i) {
-		for (k = 0; del[k] != '\0'; ++k) {
-			if (line[i] == del[k]) {
-				k = -1;
-				break;
-			}
-	}
-		if (k != -1) 
+		for (k = 0; del[k] != '\0' && del[k] != line[i]; ++k)
+			;
+		if (del[k] == '\0')
 			line[j++] = line[i];
 	}
 	line[j] = '\0';
